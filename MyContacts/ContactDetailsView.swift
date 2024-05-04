@@ -11,33 +11,39 @@ struct ContactDetailsView: View {
     let person: Person
     
     var body: some View {
-        
-        Image(systemName: "person.fill")
-            .resizable()
-            .frame(width: 150, height: 150)
-                VStack{
-                    HStack{
-                        Image(systemName: "phone")
-                            .foregroundStyle(.blue)
-                        Text(person.phoneNumber)
-                            .font(.title)
-                        Spacer()
-                            
-                    }
-                    HStack{
-                        Image(systemName: "envelope")
-                            .foregroundStyle(.blue)
-                        Text(person.email)
-                            .font(.title)
-                        Spacer()
-                    }
+        List{
+            Section{
+                HStack{
+                    Spacer()
+                    Image(systemName: "person.fill")
+                        .resizable()
+                        .foregroundStyle(.black)
+                        .frame(width: 150, height: 150)
                     Spacer()
                 }
-                .navigationTitle(person.fullName)
-                .padding()
+                
+                HStack{
+                    Image(systemName: "phone")
+                        .foregroundStyle(.blue)
+                    Text(person.phoneNumber)
+                        .font(.title3)
+                    Spacer()
+                }
+                HStack{
+                    Image(systemName: "envelope")
+                        .foregroundStyle(.blue)
+                    Text(person.email)
+                        .font(.title3)
+                    Spacer()
+                }
             }
         }
+        .listStyle(.insetGrouped)
+        .navigationTitle(person.fullName)
+    }
+    
+}
 
 #Preview {
-    ContactDetailsView(person: Person(name: "", surname: "", email: "", phoneNumber: ""))
+    ContactDetailsView(person: Person(name: "Tim", surname: "Cook", email: "theboss@apple.com", phoneNumber: "+1000000001"))
 }

@@ -8,32 +8,33 @@
 import SwiftUI
 
 struct NumbersView: View {
+    let persons: [Person]
+    
     var body: some View {
-        
-        VStack{
-            HStack{
-                Text("FullName")
-                Spacer()
+            List(persons, id: \.self) { person in
+                Section(header: Text(person.fullName)) {
+                    HStack {
+                        Image(systemName: "phone")
+                            .foregroundStyle(.blue)
+                        Text(person.phoneNumber)
+                            .font(.title3)
+                        Spacer()
+                    }
+                    HStack {
+                        Image(systemName: "envelope")
+                            .foregroundStyle(.blue)
+                        Text(person.email)
+                            .font(.title3)
+                        Spacer()
+                    }
+                }
             }
-                HStack{
-                Image(systemName: "phone")
-                    .foregroundStyle(.blue)
-                Text("phone")
-                    .font(.title)
-                Spacer()
-            }
-            HStack{
-                Image(systemName: "envelope")
-                    .foregroundStyle(.blue)
-                Text("email")
-                    .font(.title)
-                Spacer()
-            }
-            Spacer()
-        }
+            .listStyle(.insetGrouped)
+        .navigationTitle("Contact List")
     }
 }
 
+
 #Preview {
-    NumbersView()
+    NumbersView(persons: Person.getContactList())
 }
