@@ -18,10 +18,9 @@ struct ContactDetailsView: View {
                     Image(systemName: "person.fill")
                         .resizable()
                         .foregroundStyle(.black)
-                        .frame(width: 150, height: 150)
+                        .frame(width: 120, height: 120)
                     Spacer()
                 }
-                
                 HStack{
                     Image(systemName: "phone")
                         .foregroundStyle(.blue)
@@ -38,12 +37,11 @@ struct ContactDetailsView: View {
                 }
             }
         }
+        Spacer()
         .listStyle(.insetGrouped)
         .navigationTitle(person.fullName)
     }
-    
 }
-
 #Preview {
     ContactDetailsView(person: Person(name: "Tim", surname: "Cook", email: "theboss@apple.com", phoneNumber: "+1000000001"))
 }

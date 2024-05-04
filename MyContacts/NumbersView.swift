@@ -17,24 +17,22 @@ struct NumbersView: View {
                         Image(systemName: "phone")
                             .foregroundStyle(.blue)
                         Text(person.phoneNumber)
-                            .font(.title3)
+                            .font(.subheadline)
                         Spacer()
                     }
                     HStack {
                         Image(systemName: "envelope")
                             .foregroundStyle(.blue)
                         Text(person.email)
-                            .font(.title3)
+                            .font(.subheadline)
                         Spacer()
                     }
                 }
             }
-            .listStyle(.insetGrouped)
+            .listStyle(.plain)
         .navigationTitle("Contact List")
     }
 }
-
-
 #Preview {
     NumbersView(persons: Person.getContactList())
 }
