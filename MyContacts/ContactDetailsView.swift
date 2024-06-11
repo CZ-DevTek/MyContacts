@@ -1,4 +1,4 @@
-//
+    //
 //  ContactDetailsView.swift
 //  MyContacts
 //
@@ -11,9 +11,9 @@ struct ContactDetailsView: View {
     let person: Person
     
     var body: some View {
-        List{
-            Section{
-                HStack{
+        List {
+            Section {
+                HStack {
                     Spacer()
                     Image(systemName: "person.fill")
                         .resizable()

@@ -11,15 +11,13 @@ struct ContactsView: View {
     let persons: [Person]
     
     var body: some View {
-        VStack{
+        NavigationStack{
             List(persons, id: \.self) { person in
-                NavigationLink(destination: ContactDetailsView(person: person)){
-                    Text("\(person.fullName)")
-                }
+                NavigationLink(person.fullName, destination: ContactDetailsView(person: person))
             }
-            .listStyle(.plain)
-            .navigationTitle("Contact List")
         }
+        .listStyle(.plain)
+        .navigationTitle("Contact List")
     }
 }
 #Preview {
